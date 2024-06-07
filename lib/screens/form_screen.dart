@@ -8,6 +8,10 @@ class FormScreen extends StatefulWidget {
 }
 
 class _FormScreenState extends State<FormScreen> {
+  TextEditingController nameController = TextEditingController();
+  TextEditingController difficultyController = TextEditingController();
+  TextEditingController imageController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -27,14 +31,49 @@ class _FormScreenState extends State<FormScreen> {
               Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: TextFormField(
+                  controller: nameController,
                   textAlign: TextAlign.center,
-                  decoration: InputDecoration(
+                  decoration: const InputDecoration(
                     border: OutlineInputBorder(),
                     hintText: "nome",
                     fillColor: Colors.white70,
                     filled: true,
                   ),
                 ),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: TextFormField(
+                  controller: difficultyController,
+                  textAlign: TextAlign.center,
+                  decoration: const InputDecoration(
+                    border: OutlineInputBorder(),
+                    hintText: "Dificuldade",
+                    fillColor: Colors.white70,
+                    filled: true,
+                  ),
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: TextFormField(
+                  controller: imageController,
+                  textAlign: TextAlign.center,
+                  decoration: const InputDecoration(
+                    border: OutlineInputBorder(),
+                    hintText: "Image",
+                    fillColor: Colors.white70,
+                    filled: true,
+                  ),
+                ),
+              ),
+              ElevatedButton(
+                onPressed: () {
+                  print(nameController.text);
+                  print(int.parse(imageController.text));
+                  print(difficultyController.text);
+                },
+                child: const Text("Adiconar"),
               )
             ],
           ),
